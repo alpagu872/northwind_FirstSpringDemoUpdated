@@ -8,7 +8,6 @@ import kodlamaio.northwind.Core.utilities.results.SuccessResult;
 import kodlamaio.northwind.DataAccess.Abstracts.ProductDAO;
 import kodlamaio.northwind.Entities.Concretes.Product;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +17,6 @@ public class ProductManager implements ProductService {
 
     private ProductDAO productDao;
 
-    @Autowired
     public ProductManager(ProductDAO productDao) { //injection
         this.productDao = productDao;
     }
