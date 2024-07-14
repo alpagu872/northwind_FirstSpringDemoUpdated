@@ -1,16 +1,24 @@
 package kodlamaio.northwind.Entities.Concretes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
 @Data
 @Entity
 @Table(name = "categories")
-
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
 public class Category {
+
 
     @Id
     @GeneratedValue
@@ -26,14 +34,8 @@ public class Category {
     @Column(name = "picture")
     private String picture;
 
-    public Category(int categoryId, String categoryName, String description, String picture) {
-        this.categoryId = categoryId;
-        this.categoryName = categoryName;
-        this.description = description;
-        this.picture = picture;
-    }
+    @JsonManagedReference
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
-    public Category(){
-
-    }
 }

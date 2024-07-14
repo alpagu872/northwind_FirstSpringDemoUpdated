@@ -1,5 +1,6 @@
 package kodlamaio.northwind.Entities.Concretes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,8 @@ public class Product {
     @Column(name = "product_id")
     private int id;
 
-    @Column(name = "category_id")
-    private int categoryId;
+//    @Column(name = "category_id")
+//    private int categoryId;
 
     @Column(name = "product_name")
     private String productName;
@@ -33,6 +34,11 @@ public class Product {
 
     @Column(name = "quantity_per_unit")
     private String quantityPerUnit;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 
 
