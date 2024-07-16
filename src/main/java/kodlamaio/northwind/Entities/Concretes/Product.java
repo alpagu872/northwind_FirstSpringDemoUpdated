@@ -35,9 +35,8 @@ public class Product {
     @Column(name = "quantity_per_unit")
     private String quantityPerUnit;
 
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne()
+    @JoinColumn(name="category_id")
     private Category category;
 
 

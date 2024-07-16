@@ -5,6 +5,7 @@ import kodlamaio.northwind.Business.Abstracts.ProductService;
 import kodlamaio.northwind.Core.utilities.results.DataResult;
 
 import kodlamaio.northwind.Core.utilities.results.Result;
+import kodlamaio.northwind.Core.utilities.results.SuccessDataResult;
 import kodlamaio.northwind.Entities.Concretes.Product;
 import kodlamaio.northwind.Entities.Dtos.ProductWithCategoryDto;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin
 public class ProductsController {
 
     private ProductService productService;
@@ -25,6 +27,7 @@ public class ProductsController {
     public DataResult<List<Product>> getAll() {
         return this.productService.getAll();
     }
+
 
     @GetMapping("/getAllSorted")
     public DataResult<List<Product>> getAllSorted() {

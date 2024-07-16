@@ -52,7 +52,7 @@ public class UsersController {
 
 
     @GetMapping("/findByEmail")
-    public DataResult<User> finByEmail(@RequestParam String mail) {
+    public DataResult<User> findByEmail(@RequestParam String mail) {
         return this.userService.findByEmail(mail);
     }
 }

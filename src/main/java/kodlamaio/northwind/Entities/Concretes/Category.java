@@ -34,7 +34,6 @@ public class Category {
     @Column(name = "picture")
     private String picture;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 

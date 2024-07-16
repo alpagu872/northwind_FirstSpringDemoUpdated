@@ -30,6 +30,8 @@ public class ProductManager implements ProductService {
         return new SuccessDataResult<List<Product>>(this.productDao.findAll(), "Data Listelendi.");
     }
 
+
+
     @Override
     public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
